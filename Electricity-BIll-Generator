@@ -1,0 +1,39 @@
+def generate_electricity_bill():
+    consumer_name=input("Enter Consumer Name : ")
+    consumer_number=input("Enter Consumer Number : ")
+    
+    old_reading=float(input("Enter old Electricity usage in units : "))
+    current_reading=float(input("Enter current Electricity usage in units : "))
+    if old_reading > current_reading:
+        print("Current reading cannot be less than old reading.")
+        return
+    units_used=current_reading-old_reading
+        
+    if units_used <= 100:
+        total_bill = units_used * 3
+        calculation=f"{units_used:.0f} x Rs. 3"
+    elif units_used <= 150:
+        total_bil=(100*3)+((units_used -100)*5)
+        calculation=f"100 * Rs. 3 +  {units_used-100:.0f} * Rs. 5"
+    elif units_used <=200:
+        total_bill=(100*3)+(50*5)+(units_used-150)*7
+        calculation=f"100 * Rs. 3 + 50 * Rs. 5 +  {units_used-150:.0f} * Rs. 7"
+    else:
+        total_bill=(100*3)+(50*5)+(50*7) + (units_used-200)*9
+        calculation=f"100 * Rs. 3 + 50 * Rs. 5 + 50 * Rs. 7 + {units_used-200:.0f} * Rs. 9"
+    print("/n" + "=" * 55)
+    print("  ELECTRICITY_BILL  ")
+    print("/n" + "=" * 55)
+    print(f"Consumer_Name : {consumer_name}")
+    print(f"Consumer_Number : {consumer_number}")
+    print("-" *  55)
+    print(f"Old_Reading : {old_reading:.0f}")
+    print(f"Current_Reading : {current_reading:.0f}")
+    print(f"Units_Used : {units_used:.0f}")
+    print(f"Calculation : {calculation}")
+    print(f"Total_Bill : {total_bill:.2f}")
+    print("=" * 55)
+    print(" Thank You for using our Service ")
+    print("=" * 55)
+generate_electricity_bill()    
+    
